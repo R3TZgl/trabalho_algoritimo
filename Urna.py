@@ -90,6 +90,7 @@ while urna:
             print("Ausência confirmada.")
             ausentes += 1
             verificador = False
+            
         
         else:
             print("Favor digitar apenas [s] ou [n]. Tente novamente.")
