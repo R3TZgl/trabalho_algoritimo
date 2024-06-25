@@ -63,10 +63,12 @@ Nver10 = 11000
 zona = 244
 secao = 5683
 eleitores = ausentes = titulo = 0
-verificador = urna = vereador = prefeito = True
+urna = vereador = prefeito = True
 presenca = False
 
 while urna:
+
+    verificador = True
 
     # looping para verificar o eleitor
     while verificador:
@@ -92,6 +94,8 @@ while urna:
         elif verificador_presenca == "n":
             print("Ausência confirmada.")
             ausentes += 1
+            verificador = True
+            verificador = False
 
         else:
             print("Favor digitar apenas [s] ou [n]. Tente novamente.")
@@ -102,8 +106,12 @@ while urna:
 
         while vereador:
 
+            verificador_candidato = ""
+
             voto_vereador = int(
-                input("Digite o número do seu candidato a vereador: "))
+                input(
+                    "Digite o número do seu candidato a vereador ou 00(nulo) 01(branco): "
+                ))
 
             if voto_vereador == 10000:
                 verificador_candidato = input(
@@ -113,7 +121,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 20000:
+            elif voto_vereador == 20000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver2}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -121,7 +129,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 30000:
+            elif voto_vereador == 30000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver3}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -129,7 +137,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 40000:
+            elif voto_vereador == 40000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver4}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -145,7 +153,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 60000:
+            elif voto_vereador == 60000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver6}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -153,7 +161,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 70000:
+            elif voto_vereador == 70000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver7}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -161,7 +169,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 80000:
+            elif voto_vereador == 80000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver8}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -169,7 +177,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 90000:
+            elif voto_vereador == 90000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver9}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -177,7 +185,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
 
-            if voto_vereador == 11000:
+            elif voto_vereador == 11000:
                 verificador_candidato = input(
                     f"Seu candidato é: {ver10}, número: {voto_vereador}. Deseja confirmar? [s][n]"
                 )
@@ -187,47 +195,52 @@ while urna:
 
             # Votação do prefeito
 
-            while prefeito:
+        while prefeito:
 
-                voto_prefeito = int(
-                    input("Digite o número do seu candidato a vereador: "))
+            voto_candidato = ""
 
-                if voto_prefeito == 10:
-                    verificador_candidato = input(
-                        f"Seu candidato é: {pref1}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
-                    )
-                    if verificador_candidato == "s":
-                        print("Voto confirmado.")
-                        prefeito = False
+            voto_prefeito = int(
+                input(
+                    "Digite o número do seu candidato a prefeito ou 0(nulo) e 1(branco): "
+                ))
 
-                if voto_prefeito == 20:
-                    verificador_candidato = input(
-                        f"Seu candidato é: {pref2}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
-                    )
-                    if verificador_candidato == "s":
-                        print("Voto confirmado.")
-                        prefeito = False
+            if voto_prefeito == 10:
+                verificador_candidato = input(
+                    f"Seu candidato é: {pref1}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
+                )
+                if verificador_candidato == "s":
+                    print("Voto confirmado.")
+                    prefeito = False
 
-                if voto_prefeito == 30:
-                    verificador_candidato = input(
-                        f"Seu candidato é: {pref3}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
-                    )
-                    if verificador_candidato == "s":
-                        print("Voto confirmado.")
-                        prefeito = False
+            elif voto_prefeito == 20:
+                verificador_candidato = input(
+                    f"Seu candidato é: {pref2}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
+                )
+                if verificador_candidato == "s":
+                    print("Voto confirmado.")
+                    prefeito = False
 
-                if voto_prefeito == 40000:
-                    verificador_candidato = input(
-                        f"Seu candidato é: {pref4}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
-                    )
-                    if verificador_candidato == "s":
-                        print("Voto confirmado.")
-                        prefeito = False
+            elif voto_prefeito == 30:
+                verificador_candidato = input(
+                    f"Seu candidato é: {pref3}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
+                )
+                if verificador_candidato == "s":
+                    print("Voto confirmado.")
+                    prefeito = False
 
-            verificador = True
+            elif voto_prefeito == 40000:
+                verificador_candidato = input(
+                    f"Seu candidato é: {pref4}, número: {voto_prefeito}. Deseja confirmar? [s][n]"
+                )
+                if verificador_candidato == "s":
+                    print("Voto confirmado.")
+                    prefeito = False
+
+        verificador = True
 
     if ausentes + eleitores == 40:
         print(
             f"Eleição concluida. Total de {eleitores} eleitores presentes e {ausentes} ausentes."
         )
         break
+    print("c")
