@@ -65,12 +65,12 @@ votosNpref1 = votosNpref2 = votosNpref3 = votosNpref4 = votosNver1 = votosNver2 
 zona = 244
 secao = 5683
 eleitores = ausentes = titulo = nuloVer = brancoVer = nuloPref = brancoPref = 0
-urna = vereador = prefeito = True
+urna =  True
 presenca = False
 
 while urna:
 
-    verificador = vereador = prefeito = True
+    verificador_titulo = verificador = vereador = prefeito = True
 
     # looping para verificar o eleitor
     while verificador:
@@ -89,7 +89,13 @@ while urna:
             if zona != 244 or secao != 5683:
                 print("O eleitor não faz parte desta zona ou seção.")
             else:
-                titulo = int(input("Digite o título do eleitor: "))
+                while verificador_titulo:	
+                    titulo = int(input("Digite o título do eleitor: "))
+                    if titulo < 999999999999:
+                    	verificador_titulo = False
+                    else:
+                     	#como todos os 0 antes de um outro número são desconsiderados, no caso de um título (000000000001) seria igual a (1). Por conta disso foi feito apenas um verificador para não passar os 12 dígitos
+                     	print("Título inválido! O título deve conter no máximo 12 dígitos.")
                 eleitores += 1
                 presenca = True
 
@@ -204,7 +210,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
                     votosNver10 += 1
-                    
+
             elif voto_vereador == 0:
                 verificador_candidato = input(
                     f"Seu voto é nulo. Deseja confirmar? [s][n]"
@@ -213,7 +219,7 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
                     nuloVer += 1
-                    
+
             elif voto_vereador == 1:
                 verificador_candidato = input(
                     f"Seu voto é branco. Deseja confirmar? [s][n]"
@@ -222,6 +228,8 @@ while urna:
                     print("Voto confirmado.")
                     vereador = False
                     brancoVer += 1
+            else:
+            	print("Número inválido! Tente novamente.")
 
             # Votação do prefeito
 
@@ -258,20 +266,22 @@ while urna:
                     print("Voto confirmado.")
                     prefeito = False
                     votosNpref4 += 1
-            
+
             elif voto_vereador == 0:
                 verificador_candidato = input(f"Seu voto é nulo. Deseja confirmar? [s][n]")
                 if verificador_candidato == "s":
                     print("Voto confirmado.")
                     prefeito = False
                     nuloPref += 1
-                    
+
             elif voto_vereador == 1:
                 verificador_candidato = input(f"Seu voto é branco. Deseja confirmar? [s][n]")
                 if verificador_candidato == "s":
                     print("Voto confirmado.")
                     prefeito = False
                     brancoPref += 1
+            else:
+            	print("Número inválido! Tente novamente.")
 
         verificador = True
 
