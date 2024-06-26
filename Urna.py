@@ -91,8 +91,8 @@ while urna:
             else:
                 while verificador_titulo:	
                     titulo = int(input("Digite o título do eleitor: "))                    
-                    #como todos os 0 antes de um outro número são desconsiderados, no caso de um título (000000000001) seria igual a (1). Por conta disso foi feito apenas um verificador para não passar os 12 dígitos
-
+                    
+#como todos os 0 antes de um outro número são desconsiderados, no caso de um título (000000000001) seria igual a (1). Por conta disso foi feito apenas um verificador para não passar os 12 dígitos
                     if titulo < 999999999999:
                     	verificador_titulo = False
                     else:
